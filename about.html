@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme"><!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bahdmus Agency</title>
+    <!-- Other meta tags and links -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- The rest of your <head> content -->
+</head>
+<body>
+    <!-- Your page content -->
+</body>
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Bahdmus Agency | Strategic Web Development for Creatives</title>
+    
+    <meta name="description" content="Meet Bahdmus Agency - Strategic web development specialists crafting premium digital experiences for artists, musicians, and creative brands worldwide.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- About CSS -->
+    <style>
+        .about-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+        
+        .about-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0.85)),
+                url('assets/images/about-hero-bg.jpg') center/cover;
+            filter: brightness(0.7);
+            z-index: -2;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(255, 51, 102, 0.2), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 212, 255, 0.15), transparent 50%);
+            z-index: -1;
+        }
+        
+        .founder-section {
+            padding: var(--space-xxl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xxl);
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .founder-image-container {
+            position: relative;
+        }
+        
+        .founder-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .founder-image-frame {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            bottom: 20px;
+            left: 20px;
+            border: 2px solid var(--accent-primary);
+            border-radius: var(--radius-lg);
+            z-index: 1;
+            opacity: 0.5;
+        }
+        
+        .founder-bio {
+            padding: var(--space-xl);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: var(--border-light);
+        }
+        
+        .founder-quote {
+            position: relative;
+            padding-left: var(--space-lg);
+            margin: var(--space-xl) 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .founder-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--accent-primary);
+            font-family: var(--font-serif);
+            line-height: 1;
+        }
+        
+        .values-section {
+            background: var(--bg-surface);
+            padding: var(--space-xxl) 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+        
+        .value-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: var(--transition-smooth);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .expertise-section {
+            padding: var(--space-xxl) 0;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+        
+        .expertise-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition-smooth);
+        }
+        
+        .expertise-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+        }
+        
+        .expertise-level {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            margin-top: var(--space-md);
+            overflow: hidden;
+        }
+        
+        .expertise-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            transition: width 1s ease;
+        }
+        
+        .milestones-section {
+            background: var(--bg-surface);
+            padding: var(--space-xxl) 0;
+        }
+        
+        .milestone-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: var(--space-xl) auto;
+            padding: var(--space-xl) 0;
+        }
+        
+        .milestone-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                transparent, 
+                var(--accent-primary) 20%, 
+                var(--accent-primary) 80%, 
+                transparent
+            );
+        }
+        
+        .milestone {
+            position: relative;
+            margin-bottom: var(--space-xxl);
+            width: 45%;
+        }
+        
+        .milestone:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+            text-align: right;
+            padding-right: 60px;
+        }
+        
+        .milestone:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+            padding-left: 60px;
+        }
+        
+        .milestone-year {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            z-index: 2;
+        }
+        
+        .milestone:nth-child(odd) .milestone-year {
+            right: -20px;
+        }
+        
+        .milestone:nth-child(even) .milestone-year {
+            left: -20px;
+        }
+        
+        .milestone-content {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+        
+        .team-section {
+            padding: var(--space-xxl) 0;
+        }
+        
+        .team-intro {
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            text-align: center;
+        }
+        
+        .social-presence {
+            padding: var(--space-xxl) 0;
+            background: var(--bg-surface);
+            text-align: center;
+        }
+        
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            min-width: 200px;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+        
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .social-stat {
+            text-align: center;
+        }
+        
+        .social-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .social-stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+        }
+        
+        .philosophy-section {
+            padding: var(--space-xxl) 0;
+        }
+        
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .philosophy-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .philosophy-quote {
+            font-size: 1.5rem;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .milestone-timeline::before {
+                left: 30px;
+            }
+            
+            .milestone {
+                width: 100%;
+                padding-left: 60px !important;
+                text-align: left !important;
+                margin-right: 0 !important;
+            }
+            
+            .milestone-year {
+                left: 30px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="premium-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">BAHDMUS</a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="process.html" class="nav-link">Process</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-cta">Start Project</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-bg"></div>
+        <div class="container-lg">
+            <div class="section-header" style="text-align: left;">
+                <span class="section-tag">Our Story</span>
+                <h1>Crafting Digital<br>Excellence</h1>
+                <p class="lead" style="max-width: 600px; margin-left: 0;">
+                    Bahdmus Agency transforms creative vision into exceptional digital 
+                    experiences. We blend artistic sensibility with technical precision 
+                    to build web experiences that inspire, engage, and deliver results.
+                </p>
+                
+                <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <a href="#founder" class="premium-btn btn-outline">
+                        Meet the Founder
+                        <svg width="20" height="20" viewBox="0 0 20 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="portfolio.html" class="premium-btn btn-outline">View Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="founder-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Leadership</span>
+                <h2>Meet Isaac</h2>
+                <p class="lead">
+                    The creative force behind Bahdmus Agency, combining technical expertise 
+                    with artistic vision to deliver exceptional digital experiences.
+                </p>
+            </div>
+
+            <div class="founder-grid">
+                <div class="founder-image-container">
+                    <div class="founder-image-frame"></div>
+                    <img src="img/Bahdmoney developer.jpeg"Isaac - Founder of Bahdmus Agency" class="founder-image">
+                    <div class="founder-image"  var(--accent-primary), var(--accent-secondary)); height: 500px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                        Isaac - Founder
+                    </div>
+                </div>
+                
+                <div class="founder-bio">
+                    <h3>Founder & Lead Developer</h3>
+                    <p>
+                        With years of expertise in HTML, CSS, and JavaScript, Isaac combines 
+                        technical precision with creative vision to build digital experiences 
+                        that truly represent artistic brands.
+                    </p>
+                    
+                    <p>
+                        Specializing in web development for artists and creative professionals, 
+                        Isaac understands the unique challenges and opportunities in showcasing 
+                        creative work online. Each project is approached with strategic thinking 
+                        and meticulous attention to detail.
+                    </p>
+                    
+                    <div class="founder-quote">
+                        "Great digital experiences aren't just built with code—they're crafted 
+                        with understanding, strategy, and a deep respect for the creative vision."
+                    </div>
+                    
+                    <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-xl);">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">4+</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">Years Experience</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">50+</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">Projects Delivered</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">100%</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Our Values</span>
+                <h2>What Drives Us</h2>
+                <p class="lead">
+                    Core principles that guide every project and partnership at Bahdmus Agency.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Strategic Precision</h3>
+                    <p>
+                        Every project begins with a strategic foundation, ensuring 
+                        each decision aligns with your goals and delivers measurable results.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Creative Excellence</h3>
+                    <p>
+                        We believe in the power of beautiful, functional design that 
+                        authentically represents your creative vision and brand identity.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Authentic Partnership</h3>
+                    <p>
+                        Collaboration is at our core. We work alongside you as partners, 
+                        ensuring transparency and alignment at every stage.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Growth Focus</h3>
+                    <p>
+                        Our solutions are built for longevity and scalability, designed 
+                        to evolve with your career and support sustainable growth.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Technical Excellence</h3>
+                    <p>
+                        Clean code, modern technologies, and performance optimization 
+                        ensure your digital presence is fast, secure, and reliable.
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Client Success</h3>
+                    <p>
+                        Your success is our success. We measure our achievements by 
+                        the impact we create for your creative career or business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Expertise</span>
+                <h2>Technical Excellence</h2>
+                <p class="lead">
+                    Deep expertise in modern web technologies and methodologies.
+                </p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Frontend Development</h3>
+                    <p>HTML5, CSS3, JavaScript (ES6+), React, Vue.js, Responsive Design</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 98%"></div>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Performance Optimization</h3>
+                    <p>Lighthouse Optimization, Image Compression, Lazy Loading, Caching</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 96%"></div>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>SEO & Accessibility</h3>
+                    <p>Technical SEO, Schema Markup, WCAG Compliance, Semantic HTML</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Creative Design</h3>
+                    <p>UI/UX Design, Brand Identity, Visual Storytelling, Typography</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>E-commerce Solutions</h3>
+                    <p>Shopify Integration, Payment Gateways, Inventory Management</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="expertise-card">
+                    <h3>Project Strategy</h3>
+                    <p>Digital Strategy, User Research, Analytics, Growth Planning</p>
+                    <div class="expertise-level">
+                        <div class="expertise-progress" style="width: 94%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="milestones-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Journey</span>
+                <h2>Our Milestones</h2>
+                <p class="lead">
+                    Key moments in our journey of crafting exceptional digital experiences.
+                </p>
+            </div>
+
+            <div class="milestone-timeline">
+                <div class="milestone">
+                    <div class="milestone-year">2020</div>
+                    <div class="milestone-content">
+                        <h4>Foundation</h4>
+                        <p>Bahdmus Agency was founded with a vision to bridge creative artistry with technical excellence.</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-year">2021</div>
+                    <div class="milestone-content">
+                        <h4>First Major Projects</h4>
+                        <p>Delivered premium websites for emerging artists, establishing our reputation in the creative community.</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-year">2022</div>
+                    <div class="milestone-content">
+                        <h4>Process Refinement</h4>
+                        <p>Developed our 4-phase methodology, ensuring consistent excellence across all projects.</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-year">2023</div>
+                    <div class="milestone-content">
+                        <h4>Portfolio Expansion</h4>
+                        <p>Expanded services to include music websites and e-commerce solutions for creative brands.</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-year">2024</div>
+                    <div class="milestone-content">
+                        <h4>Premium Positioning</h4>
+                        <p>Established as a premium provider for artists and creative professionals seeking exceptional digital experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Philosophy</span>
+                <h2>Our Approach</h2>
+                <p class="lead">
+                    The thinking behind everything we create at Bahdmus Agency.
+                </p>
+            </div>
+
+            <div class="philosophy-content">
+                <p class="philosophy-quote">
+                    "Digital experiences should be as unique as the creative vision they represent."
+                </p>
+                
+                <p>
+                    At Bahdmus Agency, we believe that exceptional web development is more than 
+                    just writing code—it's about understanding the story behind each creative 
+                    project and translating that narrative into a compelling digital experience.
+                </p>
+                
+                <p>
+                    We approach each project as a partnership, combining our technical expertise 
+                    with your creative vision to build something truly special. Our process is 
+                    built on transparency, collaboration, and a relentless pursuit of excellence.
+                </p>
+                
+                <p>
+                    Whether working with visual artists, musicians, or creative brands, our 
+                    goal remains the same: to create digital experiences that not only look 
+                    beautiful but also drive meaningful results and support long-term growth.
+                </p>
+                
+                <div style="margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: var(--border-light);">
+                    <h4 style="color: var(--accent-primary); margin-bottom: var(--space-sm);">Why Choose Bahdmus Agency?</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);">
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Deep Creative Understanding</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">We speak the language of artists and creatives</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Technical Precision</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">Clean code, modern technologies, best practices</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Strategic Partnership</div>
+                            <div style="color: var(--text-secondary); font-size: 0.875rem;">We're invested in your success, not just your project</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Presence -->
+    <section class="social-presence">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Connect</span>
+                <h2>Beyond The Website</h2>
+                <p class="lead">
+                    Follow our journey and insights across platforms.
+                </p>
+            </div>
+
+          <!-- First, add Font Awesome to your head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="social-grid">
+    <a href="https://tiktok.com/@bahdmus_agency" target="_blank" class="social-card">
+        <span class="social-icon">
+            <i class="fab fa-tiktok"></i>
+        </span>
+        <h3>TikTok</h3>
+        <p>Web development tips, behind-the-scenes, and creative insights</p>
+        <div style="color: var(--accent-primary); font-weight: 600; margin-top: var(--space-sm);">Follow @bahdmus_agency</div>
+
+    
+  
+  </a>
+    
+    <!-- Instagram Card (NOW with same pink color) -->
+    <a href="https://instagram.com/bahdmus_agency" target="_blank" class="social-card">
+        <span class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </span>
+        <h3>Instagram</h3>
+        <p>Project showcases, design inspiration, and creative process</p>
+        <div style="color: var(--accent-primary); font-weight: 600; margin-top: var(--space-sm);">Follow @bahdmus_agency</div>
+    </a>
+</div>
+
+            <div class="social-stats">
+                <div class="social-stat">
+                    <div class="social-stat-number">24h</div>
+                    <div class="social-stat-label">Response Time</div>
+                </div>
+                <div class="social-stat">
+                    <div class="social-stat-number">Global</div>
+                    <div class="social-stat-label">Client Reach</div>
+                </div>
+                <div class="social-stat">
+                    <div class="social-stat-number">Free</div>
+                    <div class="social-stat-label">Initial Consultation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section cla<div class="contact-methods">
+    <div class="contact-method">
+        <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </div>
+        <div>
+            <h4>Email Us</h4>
+            <p>bahdmusisaac01@gmail.com</p>
+        </div>
+    </div>
+    <div class="contact-method">
+        <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 13.81 2.54 15.5 3.5 16.92L2 22L7.37 20.5C8.75 21.33 10.33 21.8 12 21.8C17.52 21.8 22 17.32 22 11.8C22 6.28 17.52 2 12 2Z"/>
+            </svg>
+        </div>
+        <div>
+            <h4>WhatsApp</h4>
+            <p>+234 907 430 6279</p>
+        </div>
+    </div>
+    <div class="contact-method">
+        <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+        </div>
+        <div>
+            <h4>Instagram</h4>
+            <p>@bahdmus_agency</p>
+        </div>
+    </div>
+    <div class="contact-method">
+        <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+            </svg>
+        </div>
+        <div>
+            <h4>TikTok</h4>
+            <p>@bahdmus_agency</p>
+        </div>
+    </div>
+</div>
+                
+                <div class="contact-form">
+                    <h3>Start Your Project</h3>
+                    <form id="aboutContactForm">
+                        <input type="text" class="premium-input" placeholder="Your Name" required>
+                        <input type="email" class="premium-input" placeholder="Your Email" required>
+                        <select class="premium-input">
+                            <option value="">Project Type</option>
+                            <option value="portfolio">Artist Portfolio</option>
+                            <option value="music">Music Website</option>
+                            <option value="brand">Creative Brand</option>
+                            <option value="ecommerce">E-commerce</option>
+                        </select>
+                        <textarea class="premium-input" placeholder="Tell us about your creative vision..." rows="4"></textarea>
+                        <button type="submit" class="premium-btn" style="width: 100%;">
+                            Send Message
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+<footer class="premium-footer">
+    <div class="container-lg">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BAHDMUS</div>
+                <p class="footer-tagline">
+                    Strategic web development for creative visionaries.
+                </p>
+                <div class="footer-social">
+                    <a href="https://tiktok.com/@bahdmus_agency" target="_blank" aria-label="TikTok">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://instagram.com/bahdmus_agency" target="_blank" aria-label="Instagram">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="mailto:bahdmusisaac01@gmail.com" aria-label="Email">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#founder">Our Founder</a></li>
+                        <li><a href="value.html">Our Values</a></li>
+                        <li><a href="expertise.html">Our Expertise</a></li>
+                        <li><a href="philosophy.html">Our Philosophy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Work</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <address class="footer-contact">
+                        <p>
+                            <strong>Email</strong><br>
+                            <a href="mailto:bahdmusisaac01@gmail.com">bahdmusisaac01@gmail.com</a>
+                        </p>
+                        <p>
+                            <strong>WhatsApp</strong><br>
+                            <a href="https://wa.me/2349074306279" target="_blank">+234 907 430 6279</a>
+                        </p>
+                        <p>
+                            <strong>TikTok</strong><br>
+                            <a href="https://tiktok.com/@bahdmus_agency" target="_blank">@bahdmus_agency</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Bahdmus Agency. All rights reserved.</p>
+                <p>Crafted with precision and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2349074306279?text=Hi%20Bahdmus%20Agency!%20I%20visited%20your%20about%20page%20and%20would%20like%20to%20discuss%20a%20project." 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 13.81 2.54 15.5 3.5 16.92L2 22L7.37 20.5C8.75 21.33 10.33 21.8 12 21.8C17.52 21.8 22 17.32 22 11.8C22 6.28 17.52 2 12 2Z" 
+                  fill="currentColor"/>
+        </svg>
+        <span class="whatsapp-text">Message Us</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Form submission
+            const form = document.getElementById('aboutContactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! We\'ll contact you within 24 hours.');
+                    form.reset();
+                });
+            }
+            
+            // Animate expertise bars on scroll
+            const expertiseBars = document.querySelectorAll('.expertise-progress');
+            
+            const barObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        
+                        setTimeout(() => {
+                            bar.style.transition = 'width 1.5s ease';
+                            bar.style.width = width;
+                        }, 200);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            expertiseBars.forEach(bar => barObserver.observe(bar));
+            
+            // Nav scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || !href.startsWith('#') || href === '#mainNav') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe value cards and milestones
+            document.querySelectorAll('.value-card, .milestone-content, .expertise-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Bahdmus Agency - Premium Web Development</title>
+    
+    <meta name="description" content="Explore our premium web development portfolio. Strategic digital experiences for artists, musicians, and creative brands.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../styles.css">
+    
+    <!-- Page-specific CSS -->
+    <style>
+        .portfolio-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.7)),
+                        url('../../assets/images/portfolio-hero-bg.jpg') center/cover;
+            position: relative;
+            padding-top: 100px;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin: var(--space-xl) 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+        
+        .project-statistics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin: var(--space-xxl) 0;
+            padding: var(--space-xl);
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: var(--border-light);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .client-testimonials {
+            background: var(--bg-surface);
+            padding: var(--space-xxl) 0;
+            margin-top: var(--space-xxl);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: var(--space-xl) auto;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-family: var(--font-secondary);
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto var(--space-md);
+            border: 3px solid var(--accent-primary);
+            overflow: hidden;
+        }
+        
+        .client-info {
+            margin-top: var(--space-md);
+        }
+        
+        .client-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .client-role {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="premium-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="../../index.html" class="brand-logo">BAHDMUS</a>
+            
+           <div class="nav-menu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="process.html" class="nav-link">Process</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-cta">Start Project</a>
+</div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Our Work</span>
+                <h1>Crafted Digital Experiences</h1>
+                <p class="lead">
+                    Each project represents our commitment to excellence, blending artistic vision 
+                    with technical precision to create memorable digital experiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Statistics -->
+    <section class="section-padding">
+        <div class="container-lg">
+            <div class="project-statistics">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Growth Focused</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="section-padding">
+        <div class="container-lg">
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Artist Portfolios</button>
+    
+            </div>
+
+            <!-- Project Grid -->
+            <div class="project-grid">
+                <!-- Samuel K Golden -->
+                <article class="premium-project-card" data-category="artist">
+                    <div class="project-image-wrapper">
+                        <img src="img/WhatsApp Image 2026-01-10 at 15.02.46.jpeg" alt="Samuel K Golden Portfolio" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://samuelkgolden.com/" class="premium-btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-category">Artist Portfolio</span>
+                            <span class="project-year">2026</span>
+                        </div>
+                        <h3 class="project-title">Samuel K Golden</h3>
+                        <p class="project-description">
+                            Cinematic digital portfolio for visual artist featuring immersive 
+                            storytelling and strategic content architecture.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Performance</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://samuelkgolden.com/" class="project-link">Case Study →</a>
+                            <a href="https://samuelkgolden.com/" target="_blank" class="project-link">Live Site →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Grab Brothers Band -->
+                <article class="premium-project-card" data-category="music">
+                    <div class="project-image-wrapper">
+                        <img src="img/1845da_e51ca09bab4d453a9b46068d57611b30~mv2 (1).png" alt="Grab Brothers Band Website" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://www.grabbrothersband.com/" class="premium-btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-category">Music & Band</span>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <h3 class="project-title">Grab Brothers Band</h3>
+                        <p class="project-description">
+                            Comprehensive digital hub for touring musicians with integrated 
+                            music streaming, events, and merchandise.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">E-commerce</span>
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Responsive</span>
+                            <span class="tech-tag">SEO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.grabbrothersband.com/" class="project-link">Case Study →</a>
+                            <a href="https://www.grabbrothersband.com/" target="_blank" class="project-link">Live Site →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- The Heard Eye -->
+                <article class="premium-project-card" data-category="artist">
+                    <div class="project-image-wrapper">
+                        <img src="img/The heard eye pic.png" alt="The Heard Eye Portfolio" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://www.theheardeye.com/" class="premium-btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-category">Multimedia Artist</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">The Heard Eye</h3>
+                        <p class="project-description">
+                            Gallery-focused portfolio emphasizing visual storytelling 
+                            and intuitive navigation for multidisciplinary artist.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Grid Layout</span>
+                            <span class="tech-tag">Image Optimization</span>
+                            <span class="tech-tag">Accessibility</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.theheardeye.com/" class="project-link">Case Study →</a>
+                            <a href="https://www.theheardeye.com/" target="_blank" class="project-link">Live Site →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Alias Wayne -->
+                <article class="premium-project-card" data-category="music">
+                    <div class="project-image-wrapper">
+                        <img src="img/KENDERL.png" alt="Alias Wayne Website" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://www.ranzelxkendrick.com/" class="premium-btn">View Case Study</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-category">Music Artist</span>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <h3 class="project-title">Alias Wayne</h3>
+                        <p class="project-description">
+                            Dual-personality artist website with cinematic design, 
+                            music integration, and narrative-driven user experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Storytelling</span>
+                            <span class="tech-tag">Video Integration</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.ranzelkendrick.com/" class="project-link">Case Study →</a>
+                            <a href="https://www.ranzelkendrick.com/" target="_blank" class="project-link">Live Site →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- More projects can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="client-testimonials">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>Client Success Stories</h2>
+                <p class="lead">
+                    Hear from creative professionals who transformed their digital presence 
+                    with Bahdmus Agency.
+                </p>
+            </div>
+
+            <div class="testimonial-slider">
+    <div class="testimonial-card">
+        <div class="client-avatar">
+            <img src="img/saamu.jpeg" alt="Samuel K Golden" class="client-img">
+        </div>
+        <p class="testimonial-text">
+            "Working with Bahdmus Agency transformed my online presence. 
+            The strategic approach to my portfolio resulted in a 300% increase 
+            in gallery inquiries and international recognition."
+        </p>
+        <div class="client-info">
+            <div class="client-name">Samuel K Golden</div>
+            <div class="client-role">Musical Artist</div>
+        </div>
+    </div>
+</div>
+    <!-- CTA Section -->
+    <section class="section-padding">
+        <div class="container-lg">
+            <div class="contact-grid glow-effect">
+                <div class="contact-info">
+                    <h2>Ready for Your Digital Transformation?</h2>
+                    <p>Let's create something exceptional together.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>bahdmusisaac01@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+234 907 430 6279</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Start Your Project</h3>
+                    <form id="portfolioContactForm">
+                        <input type="text" class="premium-input" placeholder="Your Name" required>
+                        <input type="email" class="premium-input" placeholder="Your Email" required>
+                        <select class="premium-input">
+                            <option value="">Project Type</option>
+                            <option value="portfolio">Artist Portfolio</option>
+                            <option value="music">Band/Music Website</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="brand">Brand Website</option>
+                        </select>
+                        <textarea class="premium-input" placeholder="Tell us about your project..." rows="4"></textarea>
+                        <button type="submit" class="premium-btn" style="width: 100%;">
+                            Request Proposal
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="premium-footer">
+    <div class="container-lg">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BAHDMUS</div>
+                <p class="footer-tagline">
+                    Strategic web development for creative visionaries.
+                </p>
+                <div class="footer-social">
+                    <a href="https://tiktok.com/@bahdmus_agency" target="_blank" aria-label="TikTok">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://instagram.com/bahdmus_agency" target="_blank" aria-label="Instagram">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="mailto:bahdmusisaac01@gmail.com" aria-label="Email">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#founder">Our Founder</a></li>
+                        <li><a href="value.html">Our Values</a></li>
+                        <li><a href="expertise.html">Our Expertise</a></li>
+                        <li><a href="philosophy.html">Our Philosophy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Work</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <address class="footer-contact">
+                        <p>
+                            <strong>Email</strong><br>
+                            <a href="mailto:bahdmusisaac01@gmail.com">bahdmusisaac01@gmail.com</a>
+                        </p>
+                        <p>
+                            <strong>WhatsApp</strong><br>
+                            <a href="https://wa.me/2349074306279" target="_blank">+234 907 430 6279</a>
+                        </p>
+                        <p>
+                            <strong>TikTok</strong><br>
+                            <a href="https://tiktok.com/@bahdmus_agency" target="_blank">@bahdmus_agency</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Bahdmus Agency. All rights reserved.</p>
+                <p>Crafted with precision and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2349074306279?text=Hi%20Bahdmus%20Agency!%20I%20visited%20your%20about%20page%20and%20would%20like%20to%20discuss%20a%20project." 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 13.81 2.54 15.5 3.5 16.92L2 22L7.37 20.5C8.75 21.33 10.33 21.8 12 21.8C17.52 21.8 22 17.32 22 11.8C22 6.28 17.52 2 12 2Z" 
+                  fill="currentColor"/>
+        </svg>
+        <span class="whatsapp-text">Message Us</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../../script.js"></script>
+    <script>
+        // Portfolio Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.premium-project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Form submission
+            const form = document.getElementById('portfolioContactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! We\'ll send you a detailed proposal within 24 hours.');
+                    form.reset();
+                });
+            }
+            
+            // Nav scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

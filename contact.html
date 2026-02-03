@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Bahdmus Agency | Start Your Premium Web Development Project</title>
+    
+    <meta name="description" content="Start your premium web development project with Bahdmus Agency. Contact us for strategic consultations, custom quotes, and exceptional digital experiences.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Contact CSS -->
+    <style>
+        .contact-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+        
+        .contact-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(5, 5, 5, 0.95), rgba(5, 5, 5, 0.85)),
+                url('assets/images/contact-hero-bg.jpg') center/cover;
+            filter: brightness(0.7);
+            z-index: -2;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 51, 102, 0.2), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 212, 255, 0.15), transparent 50%);
+            z-index: -1;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xxl);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-md);
+        }
+        
+        .contact-info-section {
+            padding-right: var(--space-xl);
+        }
+        
+        .contact-methods-grid {
+            display: grid;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .contact-method-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .contact-method-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .method-info {
+            flex-grow: 1;
+        }
+        
+        .method-title {
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .method-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .method-action {
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+        
+        .response-time {
+            margin-top: var(--space-xl);
+            padding: var(--space-lg);
+            background: rgba(255, 51, 102, 0.05);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 51, 102, 0.2);
+        }
+        
+        .response-time h4 {
+            color: var(--accent-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-form-section {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-header {
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        .form-step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .form-step {
+            width: 8px;
+            height: 8px;
+            background: var(--text-tertiary);
+            border-radius: 50%;
+            transition: var(--transition-smooth);
+        }
+        
+        .form-step.active {
+            background: var(--accent-primary);
+            transform: scale(1.2);
+        }
+        
+        .form-step.completed {
+            background: var(--accent-primary);
+            opacity: 0.5;
+        }
+        
+        .form-step-group {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-step-group.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .form-label .required {
+            color: var(--accent-primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--bg-surface);
+            border: var(--border-light);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: var(--transition-smooth);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(255, 51, 102, 0.1);
+        }
+        
+        .form-control::placeholder {
+            color: var(--text-tertiary);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .form-radio {
+            display: none;
+        }
+        
+        .form-radio-label {
+            display: block;
+            padding: var(--space-md);
+            background: var(--bg-surface);
+            border: var(--border-light);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .form-radio:checked + .form-radio-label {
+            background: rgba(255, 51, 102, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        
+        .form-radio-label:hover {
+            border-color: var(--accent-primary);
+        }
+        
+        .form-budget-slider {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-full);
+            margin: var(--space-md) 0;
+        
+        }
+        
+        .form-budget-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--glow-primary);
+        }
+        
+        .budget-value {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin: var(--space-sm) 0;
+        }
+        
+        .budget-range {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: var(--border-light);
+        }
+        
+        .form-progress {
+            height: 4px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-full);
+            margin: var(--space-xl) 0;
+            overflow: hidden;
+        }
+        
+        .form-progress-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            transition: width 0.5s ease;
+        }
+        
+        .booking-section {
+            background: var(--bg-surface);
+            padding: var(--space-xxl) 0;
+            margin-top: var(--space-xxl);
+        }
+        
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+        
+        .booking-card {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+        
+        .booking-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .booking-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .faq-contact {
+            padding: var(--space-xxl) 0;
+        }
+        
+        .faq-contact-grid {
+            max-width: 800px;
+            margin: var(--space-xl) auto;
+        }
+        
+        .faq-contact-item {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            overflow: hidden;
+        }
+        
+        .faq-contact-question {
+            padding: var(--space-lg);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+        
+        .faq-contact-question:hover {
+            color: var(--accent-primary);
+        }
+        
+        .faq-contact-answer {
+            padding: 0 var(--space-lg);
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            color: var(--text-secondary);
+        }
+        
+        .faq-contact-item.active .faq-contact-answer {
+            padding-bottom: var(--space-lg);
+            max-height: 500px;
+        }
+        
+        .faq-contact-toggle {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            transition: transform var(--transition-smooth);
+        }
+        
+        .faq-contact-item.active .faq-contact-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .contact-success {
+            text-align: center;
+            padding: var(--space-xxl) var(--space-xl);
+            display: none;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            font-size: 2.5rem;
+            color: white;
+            animation: bounce 1s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .success-message {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .contact-map {
+            height: 400px;
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+        }
+        
+        .working-hours {
+            background: var(--bg-card);
+            border: var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .hour-day {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .hour-time {
+            color: var(--text-secondary);
+        }
+        
+        .hour-day.weekend {
+            color: var(--accent-primary);
+        }
+        
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .contact-info-section {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="premium-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">BAHDMUS</a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="process.html" class="nav-link">Process</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="contact-hero-bg"></div>
+        <div class="container-lg">
+            <div class="section-header" style="text-align: left;">
+                <span class="section-tag">Get In Touch</span>
+                <h1>Start Your Digital<br>Transformation</h1>
+                <p class="lead" style="max-width: 600px; margin-left: 0;">
+                    Ready to transform your creative vision into an exceptional digital experience? 
+                    Let's discuss your project and create something extraordinary together.
+                </p>
+                
+                <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <a href="#contact-form" class="premium-btn">
+                        Start Your Project
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                    <a href="#contact-methods" class="premium-btn btn-outline">Contact Methods</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="section-padding">
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info-section">
+                <div class="section-header" style="text-align: left;">
+                    <h2>Let's Connect</h2>
+                    <p>
+                        Choose your preferred method to start the conversation. We're here to 
+                        help bring your creative vision to life.
+                    </p>
+                </div>
+
+                <div id="contact-methods" class="contact-methods-grid">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/2349074306279?text=Hi%20Bahdmus%20Agency!%20I'd%20like%20to%20discuss%20a%20web%20development%20project." 
+                       target="_blank" 
+                       class="contact-method-card">
+                        <div class="method-icon">💬</div>
+                        <div class="method-info">
+                            <div class="method-title">WhatsApp</div>
+                            <div class="method-details">Fast responses, ideal for quick questions and project discussions</div>
+                        </div>
+                        <div class="method-action">Message Now →</div>
+                    </a>
+                    
+                    <!-- Email -->
+                    <a href="mailto:bahdmusisaac01@gmail.com?subject=Web%20Development%20Project%20Inquiry&body=Hi%20Bahdmus%20Agency,%0A%0AI'd%20like%20to%20discuss%20a%20project...%0A%0AProject%20Type:%0ABudget%20Range:%0ATimeline:%0A%0ALooking%20forward%20to%20hearing%20from%20you!"
+                       class="contact-method-card">
+                        <div class="method-icon">✉️</div>
+                        <div class="method-info">
+                            <div class="method-title">Email</div>
+                            <div class="method-details">Detailed project briefs and formal inquiries</div>
+                        </div>
+                        <div class="method-action">Send Email →</div>
+                    </a>
+                    
+                    <!-- TikTok -->
+                    <a href="https://tiktok.com/@bahdmus_agency" 
+                       target="_blank" 
+                       class="contact-method-card">
+                        <div class="method-icon">🎵</div>
+                        <div class="method-info">
+                            <div class="method-title">TikTok</div>
+                            <div class="method-details">Follow for web development insights and behind-the-scenes</div>
+                        </div>
+                        <div class="method-action">Follow Us →</div>
+                    </a>
+                    
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/bahdmus_agency" 
+                       target="_blank" 
+                       class="contact-method-card">
+                        <div class="method-icon">📸</div>
+                        <div class="method-info">
+                            <div class="method-title">Instagram</div>
+                            <div class="method-details">Project showcases and creative inspiration</div>
+                        </div>
+                        <div class="method-action">Follow Us →</div>
+                    </a>
+                </div>
+
+                <div class="response-time">
+                    <h4>🚀 Fast Response Time</h4>
+                    <p>We respond to all inquiries within <strong>24 hours</strong>, often much sooner. Initial consultations are always free and without obligation.</p>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="working-hours">
+                    <h3>Working Hours</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">We're available during these hours for calls and meetings:</p>
+                    
+                    <div class="hours-grid">
+                        <div>
+                            <div class="hour-day">Monday - Friday</div>
+                            <div class="hour-time">9:00 AM - 6:00 PM WAT</div>
+                        </div>
+                        <div>
+                            <div class="hour-day">Saturday</div>
+                            <div class="hour-time">10:00 AM - 4:00 PM WAT</div>
+                        </div>
+                        <div>
+                            <div class="hour-day weekend">Sunday</div>
+                            <div class="hour-time">By appointment only</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-section" id="contact-form">
+                <div class="form-header">
+                    <h2>Start Your Project</h2>
+                    <p>Tell us about your vision. We'll get back to you with a custom strategy.</p>
+                    
+                    <div class="form-step-indicator">
+                        <div class="form-step active" data-step="1"></div>
+                        <div class="form-step" data-step="2"></div>
+                        <div class="form-step" data-step="3"></div>
+                    </div>
+                    
+                    <div class="form-progress">
+                        <div class="form-progress-bar" style="width: 33%"></div>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Form -->
+                <form id="multiStepContactForm">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step-group active" data-step="1">
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                Your Name <span class="required">*</span>
+                            </label>
+                            <input type="text" 
+                                   id="name" 
+                                   class="form-control" 
+                                   placeholder="John Doe" 
+                                   required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input type="email" 
+                                   id="email" 
+                                   class="form-control" 
+                                   placeholder="hello@example.com" 
+                                   required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Preferred Contact Method <span class="required">*</span>
+                            </label>
+                            <div class="form-radio-group">
+                                <input type="radio" 
+                                       id="contact-whatsapp" 
+                                       name="contact-method" 
+                                       value="whatsapp" 
+                                       class="form-radio" 
+                                       checked>
+                                <label for="contact-whatsapp" class="form-radio-label">
+                                    WhatsApp
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="contact-email" 
+                                       name="contact-method" 
+                                       value="email" 
+                                       class="form-radio">
+                                <label for="contact-email" class="form-radio-label">
+                                    Email
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="contact-call" 
+                                       name="contact-method" 
+                                       value="call" 
+                                       class="form-radio">
+                                <label for="contact-call" class="form-radio-label">
+                                    Phone Call
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <div></div> <!-- Empty div for spacing -->
+                            <button type="button" class="premium-btn next-step" data-next="2">
+                                Next Step
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Project Details -->
+                    <div class="form-step-group" data-step="2">
+                        <div class="form-group">
+                            <label class="form-label">
+                                Project Type <span class="required">*</span>
+                            </label>
+                            <div class="form-radio-group">
+                                <input type="radio" 
+                                       id="project-artist" 
+                                       name="project-type" 
+                                       value="artist-portfolio" 
+                                       class="form-radio" 
+                                       checked>
+                                <label for="project-artist" class="form-radio-label">
+                                    Artist Portfolio
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="project-music" 
+                                       name="project-type" 
+                                       value="music-website" 
+                                       class="form-radio">
+                                <label for="project-music" class="form-radio-label">
+                                    Music Website
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="project-brand" 
+                                       name="project-type" 
+                                       value="creative-brand" 
+                                       class="form-radio">
+                                <label for="project-brand" class="form-radio-label">
+                                    Creative Brand
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="project-ecommerce" 
+                                       name="project-type" 
+                                       value="ecommerce" 
+                                       class="form-radio">
+                                <label for="project-ecommerce" class="form-radio-label">
+                                    E-commerce
+                                </label>
+                                
+                                <input type="radio" 
+                                       id="project-other" 
+                                       name="project-type" 
+                                       value="other" 
+                                       class="form-radio">
+                                <label for="project-other" class="form-radio-label">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">
+                                Project Timeline
+                            </label>
+                            <select id="timeline" class="form-control">
+                                <option value="">Select Timeline</option>
+                                <option value="asap">ASAP (Within 1 month)</option>
+                                <option value="1-2months">1-2 Months</option>
+                                <option value="2-3months">2-3 Months</option>
+                                <option value="3plus">3+ Months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                Estimated Budget Range
+                            </label>
+                            <input type="range" 
+                                   id="budget" 
+                                   class="form-budget-slider" 
+                                   min="1000" 
+                                   max="10000" 
+                                   step="500" 
+                                   value="5000">
+                            <div class="budget-value">$5,000</div>
+                            <div class="budget-range">
+                                <span>$1,000</span>
+                                <span>$10,000+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="premium-btn btn-outline prev-step" data-prev="1">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Previous
+                            </button>
+                            <button type="button" class="premium-btn next-step" data-next="3">
+                                Next Step
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Project Description -->
+                    <div class="form-step-group" data-step="3">
+                        <div class="form-group">
+                            <label for="project-name" class="form-label">
+                                Project/Company Name
+                            </label>
+                            <input type="text" 
+                                   id="project-name" 
+                                   class="form-control" 
+                                   placeholder="e.g., Samuel K Golden Portfolio">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-description" class="form-label">
+                                Project Description <span class="required">*</span>
+                            </label>
+                            <textarea id="project-description" 
+                                      class="form-control form-textarea" 
+                                      placeholder="Tell us about your project, goals, and vision..."
+                                      required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reference" class="form-label">
+                                Reference (Optional)
+                            </label>
+                            <input type="text" 
+                                   id="reference" 
+                                   class="form-control" 
+                                   placeholder="How did you hear about us?">
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="premium-btn btn-outline prev-step" data-prev="2">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Previous
+                            </button>
+                            <button type="submit" class="premium-btn">
+                                Submit Project
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div class="contact-success" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h2>Thank You!</h2>
+                    <p class="success-message">
+                        Your project inquiry has been submitted successfully. 
+                        We'll review your details and contact you within 24 hours.
+                    </p>
+                    <a href="index.html" class="premium-btn btn-outline">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Options -->
+    <section class="booking-section">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Booking</span>
+                <h2>Schedule a Consultation</h2>
+                <p class="lead">
+                    Choose the consultation option that works best for your project needs.
+                </p>
+            </div>
+
+            <div class="booking-grid">
+                <div class="booking-card">
+                    <div class="booking-icon">📞</div>
+                    <h3>Discovery Call</h3>
+                    <p>30-minute introductory call to discuss your project vision and requirements.</p>
+                    <a href="https://wa.me/2349074306279?text=I'd%20like%20to%20schedule%20a%20discovery%20call%20for%20my%20project." 
+                       target="_blank" 
+                       class="premium-btn btn-outline" 
+                       style="margin-top: var(--space-md);">
+                        Schedule Call
+                    </a>
+                </div>
+                
+                <div class="booking-card">
+                    <div class="booking-icon">🎯</div>
+                    <h3>Strategy Session</h3>
+                    <p>60-minute deep dive into your project goals, audience, and technical requirements.</p>
+                    <a href="mailto:bahdmusisaac01@gmail.com?subject=Strategy%20Session%20Request&body=I'd%20like%20to%20schedule%20a%20strategy%20session%20for%20my%20project."
+                       class="premium-btn btn-outline" 
+                       style="margin-top: var(--space-md);">
+                        Book Session
+                    </a>
+                </div>
+                
+                <div class="booking-card">
+                    <div class="booking-icon">🚀</div>
+                    <h3>Proposal Review</h3>
+                    <p>Review existing proposals or get a custom quote for your specific project needs.</p>
+                    <a href="#contact-form" 
+                       class="premium-btn btn-outline" 
+                       style="margin-top: var(--space-md);">
+                        Request Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-contact">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2>Common Questions</h2>
+                <p class="lead">
+                    Quick answers to common questions about starting your project.
+                </p>
+            </div>
+
+            <div class="faq-contact-grid">
+                <!-- FAQ 1 -->
+                <div class="faq-contact-item">
+                    <div class="faq-contact-question">
+                        How long does the process take from inquiry to project start?
+                        <span class="faq-contact-toggle">+</span>
+                    </div>
+                    <div class="faq-contact-answer">
+                        Typically 1-3 business days. After your inquiry, we'll schedule a discovery call within 24 hours. Following the call, you'll receive a proposal within 1-2 business days. Once approved, we can start immediately based on our availability.
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-contact-item">
+                    <div class="faq-contact-question">
+                        What information should I provide in my initial inquiry?
+                        <span class="faq-contact-toggle">+</span>
+                    </div>
+                    <div class="faq-contact-answer">
+                        For the best consultation, provide: 1) Project type (portfolio, e-commerce, etc.), 2) Timeline expectations, 3) Budget range, 4) Reference websites you like, 5) Any specific features or requirements. Don't worry if you're unsure—we'll guide you through everything.
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-contact-item">
+                    <div class="faq-contact-question">
+                        Do you work with international clients?
+                        <span class="faq-contact-toggle">+</span>
+                    </div>
+                    <div class="faq-contact-answer">
+                        Yes! We work with creative professionals worldwide. Our process is designed for remote collaboration, and we accommodate different time zones. We accept payments in multiple currencies and provide clear contracts and communication throughout.
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-contact-item">
+                    <div class="faq-contact-question">
+                        What happens after I submit my project inquiry?
+                        <span class="faq-contact-toggle">+</span>
+                    </div>
+                    <div class="faq-contact-answer">
+                        1. You'll receive confirmation within 24 hours. 2. We'll schedule a discovery call. 3. We'll create a custom proposal. 4. Once approved, we'll start with project planning and strategy. You'll have a dedicated point of contact throughout the entire process.
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-contact-item">
+                    <div class="faq-contact-question">
+                        Can I see examples of similar projects you've done?
+                        <span class="faq-contact-toggle">+</span>
+                    </div>
+                    <div class="faq-contact-answer">
+                        Absolutely! Visit our <a href="portfolio.html" style="color: var(--accent-primary);">portfolio page</a> to see examples of artist portfolios, music websites, and creative brand sites. You can also request specific case studies during our consultation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Placeholder) -->
+    <section class="section-padding">
+        <div class="container-lg">
+            <div class="section-header">
+                <span class="section-tag">Location</span>
+                <h2>Serving Creatives Worldwide</h2>
+                <p class="lead">
+                    Based in Nigeria, serving creative professionals across the globe with remote collaboration.
+                </p>
+            </div>
+
+            <div class="contact-map">
+                <div class="map-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: var(--space-md);">🌍</div>
+                        <h3>Global Reach</h3>
+                        <p>Working remotely with creative professionals worldwide</p>
+                        <div style="margin-top: var(--space-md);">
+                            <div style="color: var(--accent-primary); font-weight: 600;">Primary Service Areas:</div>
+                            <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
+                                North America • Europe • Africa • Asia • Australia
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="premium-footer">
+    <div class="container-lg">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BAHDMUS</div>
+                <p class="footer-tagline">
+                    Strategic web development for creative visionaries.
+                </p>
+                <div class="footer-social">
+                    <a href="https://tiktok.com/@bahdmus_agency" target="_blank" aria-label="TikTok">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="https://instagram.com/bahdmus_agency" target="_blank" aria-label="Instagram">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="mailto:bahdmusisaac01@gmail.com" aria-label="Email">
+                        <span class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+                <div>
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#founder">Our Founder</a></li>
+                        <li><a href="value.html">Our Values</a></li>
+                        <li><a href="expertise.html">Our Expertise</a></li>
+                        <li><a href="philosophy.html">Our Philosophy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Work</h4>
+                    <ul class="footer-links">
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="process.html">Process</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Connect</h4>
+                    <address class="footer-contact">
+                        <p>
+                            <strong>Email</strong><br>
+                            <a href="mailto:bahdmusisaac01@gmail.com">bahdmusisaac01@gmail.com</a>
+                        </p>
+                        <p>
+                            <strong>WhatsApp</strong><br>
+                            <a href="https://wa.me/2349074306279" target="_blank">+234 907 430 6279</a>
+                        </p>
+                        <p>
+                            <strong>TikTok</strong><br>
+                            <a href="https://tiktok.com/@bahdmus_agency" target="_blank">@bahdmus_agency</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Bahdmus Agency. All rights reserved.</p>
+                <p>Crafted with precision and passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2349074306279?text=Hi%20Bahdmus%20Agency!%20I%20visited%20your%20about%20page%20and%20would%20like%20to%20discuss%20a%20project." 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 13.81 2.54 15.5 3.5 16.92L2 22L7.37 20.5C8.75 21.33 10.33 21.8 12 21.8C17.52 21.8 22 17.32 22 11.8C22 6.28 17.52 2 12 2Z" 
+                  fill="currentColor"/>
+        </svg>
+        <span class="whatsapp-text">Message Us</span>
+    </a>
+
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Budget Slider
+            const budgetSlider = document.getElementById('budget');
+            const budgetValue = document.querySelector('.budget-value');
+            
+            if (budgetSlider && budgetValue) {
+                budgetSlider.addEventListener('input', function() {
+                    const value = parseInt(this.value);
+                    budgetValue.textContent = '$' + value.toLocaleString();
+                });
+            }
+            
+            // Multi-Step Form Navigation
+            const form = document.getElementById('multiStepContactForm');
+            const stepGroups = document.querySelectorAll('.form-step-group');
+            const steps = document.querySelectorAll('.form-step');
+            const progressBar = document.querySelector('.form-progress-bar');
+            let currentStep = 1;
+            
+            // Next step buttons
+            document.querySelectorAll('.next-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    const nextStep = parseInt(this.getAttribute('data-next'));
+                    
+                    // Validate current step before proceeding
+                    if (validateStep(currentStep)) {
+                        showStep(nextStep);
+                    }
+                });
+            });
+            
+            // Previous step buttons
+            document.querySelectorAll('.prev-step').forEach(button => {
+                button.addEventListener('click', function() {
+                    const prevStep = parseInt(this.getAttribute('data-prev'));
+                    showStep(prevStep);
+                });
+            });
+            
+            // Step validation function
+            function validateStep(step) {
+                const currentGroup = document.querySelector(`.form-step-group[data-step="${step}"]`);
+                const requiredFields = currentGroup.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = 'var(--accent-primary)';
+                        field.style.boxShadow = '0 0 0 3px rgba(255, 51, 102, 0.2)';
+                        
+                        // Remove error styling on input
+                        field.addEventListener('input', function() {
+                            this.style.borderColor = '';
+                            this.style.boxShadow = '';
+                        }, { once: true });
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields before proceeding.');
+                }
+                
+                return isValid;
+            }
+            
+            // Show specific step
+            function showStep(step) {
+                // Hide all steps
+                stepGroups.forEach(group => group.classList.remove('active'));
+                
+                // Show current step
+                document.querySelector(`.form-step-group[data-step="${step}"]`).classList.add('active');
+                
+                // Update step indicators
+                steps.forEach((stepIndicator, index) => {
+                    const stepNumber = index + 1;
+                    stepIndicator.classList.remove('active', 'completed');
+                    
+                    if (stepNumber === step) {
+                        stepIndicator.classList.add('active');
+                    } else if (stepNumber < step) {
+                        stepIndicator.classList.add('completed');
+                    }
+                });
+                
+                // Update progress bar
+                const progressPercentage = ((step - 1) / (steps.length - 1)) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                
+                // Update current step
+                currentStep = step;
+            }
+            
+            // Form submission
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate final step
+                    if (validateStep(currentStep)) {
+                        // Show success message
+                        form.style.display = 'none';
+                        document.getElementById('successMessage').style.display = 'block';
+                        
+                        // In a real implementation, you would send the form data to your server here
+                        console.log('Form submitted with data:', {
+                            name: document.getElementById('name').value,
+                            email: document.getElementById('email').value,
+                            contactMethod: document.querySelector('input[name="contact-method"]:checked').value,
+                            projectType: document.querySelector('input[name="project-type"]:checked').value,
+                            timeline: document.getElementById('timeline').value,
+                            budget: document.getElementById('budget').value,
+                            projectName: document.getElementById('project-name').value,
+                            projectDescription: document.getElementById('project-description').value,
+                            reference: document.getElementById('reference').value
+                        });
+                    }
+                });
+            }
+            
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-contact-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-contact-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Nav scroll effect
+            window.addEventListener('scroll', function() {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || !href.startsWith('#') || href === '#mainNav') return;
+                    
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // URL parameter handling for pre-filled forms
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service');
+            const planParam = urlParams.get('plan');
+            
+            if (serviceParam) {
+                // Auto-select service type
+                const serviceRadio = document.querySelector(`input[value="${serviceParam}"]`);
+                if (serviceRadio) {
+                    serviceRadio.checked = true;
+                }
+            }
+            
+            if (planParam) {
+                // Set budget based on plan
+                const planBudgets = {
+                    'essential': 2500,
+                    'professional': 5000,
+                    'enterprise': 7500
+                };
+                
+                if (planBudgets[planParam] && budgetSlider) {
+                    budgetSlider.value = planBudgets[planParam];
+                    budgetValue.textContent = '$' + planBudgets[planParam].toLocaleString();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
