@@ -28,7 +28,7 @@ if (menuBtn && navLinks) {
 }
 
 // Form submission
-const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('premiumContactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
